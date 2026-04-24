@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉcoApp - Notre Communauté</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* En-tête */
+    header {
+      background-color: #2E7D32;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border-radius: 20px;
+      border: none;
+    }
+
+    .user-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Section Activité Récente */
+    .activity-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .activity-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .activity-item {
+      display: flex;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .activity-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background-color: #ddd;
+    }
+
+    .activity-content h4 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .activity-content p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .activity-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .like-button, .comment-button {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Section Défis Communautaires */
+    .challenges-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .challenge {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .challenge-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .challenge-title {
+      font-weight: bold;
+      color: #2E7D32;
+    }
+
+    .challenge-progress {
+      background-color: #e0e0e0;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .challenge-progress-bar {
+      background-color: #4CAF50;
+      height: 100%;
+      border-radius: 4px;
+      width: 60%;
+    }
+
+    .challenge-participants {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .participant-avatars {
+      display: flex;
+      gap: -5px;
+    }
+
+    .participant-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #ddd;
+      border: 2px solid white;
+    }
+
+    /* Section Groupes */
+    .groups-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .group {
+      display: flex;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
+
+    .group-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background-color: #ddd;
+    }
+
+    .group-info h3 {
+      color: #2E7D32;
+      margin-bottom: 5px;
+    }
+
+    .group-info p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .group-members {
+      margin-left: auto;
+      font-size: 12px;
+      color: #999;
+    }
+
+    /* Section Discussion */
+    .discussion-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .discussion-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discussion-item {
+      display: flex;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .discussion-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background-color: #ddd;
+    }
+
+    .discussion-content h4 {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    .discussion-content p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .discussion-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    /* Barre de navigation */
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-align: center;
+      color: #2E7D32;
+      text-decoration: none;
+    }
+
+    /* Bouton flottant pour créer un post */
+    .floating-button {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #2E7D32;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête -->
+  <header>
+    <div class="logo">ÉcoApp</div>
+    <input type="text" class="search-bar" placeholder="Rechercher dans la communauté...">
+    <div class="user-icons">
+      <span>🔔</span>
+      <span>👤</span>
+    </div>
+  </header>
+
+  <!-- Section Activité Récente -->
+  <section class="activity-section">
+    <h2 class="activity-title">🔥 Activité Récente</h2>
+    <div class="activity-item">
+      <img src="Images/Marie.jpg" alt="Utilisateur" class="activity-avatar">
+      <div class="activity-content">
+        <h4>Marie <span style="color: #999; font-size: 12px;">a partagé une action</span></h4>
+        <p>J'ai ramassé 5 kg de déchets sur la plage ce week-end ! 🌊♻️</p>
+        <div class="activity-meta">
+          <span>🕒 Il y a 2 heures</span>
+          <button class="like-button">👍 12</button>
+          <button class="comment-button">💬 3</button>
+        </div>
+      </div>
+    </div>
+    <div class="activity-item">
+      <img src="Images/Pierre C.png" alt="Utilisateur" class="activity-avatar">
+      <div class="activity-content">
+        <h4>Pierre <span style="color: #999; font-size: 12px;">a rejoint un défi</span></h4>
+        <p>Je participe au défi "Zéro plastique" ce mois-ci ! 🚫🧴</p>
+        <div class="activity-meta">
+          <span>🕒 Il y a 5 heures</span>
+          <button class="like-button">👍 24</button>
+          <button class="comment-button">💬 5</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Défis Communautaires -->
+  <section class="challenges-section">
+    <h2 class="activity-title">🏆 Défis Communautaires</h2>
+    <div class="challenge">
+      <div class="challenge-header">
+        <h3 class="challenge-title">Moins de plastique en avril</h3>
+        <span style="color: #4CAF50; font-size: 12px;">En cours</span>
+      </div>
+      <div class="challenge-progress">
+        <div class="challenge-progress-bar" style="width: 60%;"></div>
+      </div>
+      <div class="challenge-participants">
+        <div class="participant-avatars">
+          <img src="Images/Arthur F.png" alt="Participant" class="participant-avatar">
+          <img src="Images/Arthur L.png" alt="Participant" class="participant-avatar">
+          <img src="Images/Axelendre.png" alt="Participant" class="participant-avatar">
+        </div>
+        <span>120 participants</span>
+      </div>
+    </div>
+    <div class="challenge">
+      <div class="challenge-header">
+        <h3 class="challenge-title">Nettoyage des parcs</h3>
+        <span style="color: #F57C00; font-size: 12px;">Bientôt</span>
+      </div>
+      <div class="challenge-progress">
+        <div class="challenge-progress-bar" style="width: 10%;"></div>
+      </div>
+      <div class="challenge-participants">
+        <div class="participant-avatars">
+          <img src="Images/antogeant.jpg" alt="Participant" class="participant-avatar">
+        </div>
+        <span>12 participants</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Groupes -->
+  <section class="groups-section">
+    <h2 class="activity-title">👥 Groupes Publics</h2>
+    <div class="group">
+      <img src="Images/groupe écolo.jfif" alt="Groupe" class="group-avatar">
+      <div class="group-info">
+        <h3>Éco-Citoyens du Mans</h3>
+        <p>Groupe dédié aux actions écologiques.</p>
+      </div>
+      <div class="group-members">120 membres</div>
+    </div>
+    <div class="group">
+      <img src="Images/ocean.webp" alt="Groupe" class="group-avatar">
+      <div class="group-info">
+        <h3>Sauvons les Océans</h3>
+        <p>Discussions et actions pour protéger les océans.</p>
+      </div>
+      <div class="group-members">89 membres</div>
+    </div>
+    <h2 class="activity-title">👥 Groupes Privés</h2>
+    <div class="group">
+      <img src="Images/Galette.jpeg" alt="Groupe" class="group-avatar">
+      <div class="group-info">
+        <h3>Groupe d'amis du Mans</h3>
+        <p>Groupe dédié à la course aux points.</p>
+      </div>
+      <div class="group-members">8 membres</div>
+  </section>
+
+  <!-- Section Discussion -->
+  <section class="discussion-section">
+    <h2 class="discussion-title">💬 Discussions</h2>
+    <div class="discussion-item">
+      <img src="Images/antogeant.jpg" alt="Utilisateur" class="discussion-avatar">
+      <div class="discussion-content">
+        <h4>Antonin : Idées pour réduire ses déchets ?</h4>
+        <p>Bonjour à tous ! Je cherche des idées pour réduire mes déchets au quotidien. Vous avez des astuces ?</p>
+        <div class="discussion-meta">
+          <span>🕒 Il y a 3 heures</span>
+          <button class="like-button">👍 8</button>
+          <button class="comment-button">💬 12</button>
+        </div>
+      </div>
+    </div>
+    <div class="discussion-item">
+      <img src="Images/Thomas.png" alt="Utilisateur" class="discussion-avatar">
+      <div class="discussion-content">
+        <h4>Thomas : Où recycler ses vêtements ?</h4>
+        <p>Salut ! Savez-vous où je peux recycler mes vieux vêtements à Lyon ?</p>
+        <div class="discussion-meta">
+          <span>🕒 Il y a 1 jour</span>
+          <button class="like-button">👍 5</button>
+          <button class="comment-button">💬 7</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bouton flottant pour créer un post -->
+  <button class="floating-button">💬</button>
+
+  <!-- Barre de navigation -->
+  <nav>
+    <a href="index.html">📊 Mon Espace</a>
+    <a href="Actualites.html">🌍 Actualités</a>
+    <a href="Communaute.html">👥 Communauté</a>
+    <a href="Communication.html">📢 Activité</a>
+  </nav>
+</body>
+</html>

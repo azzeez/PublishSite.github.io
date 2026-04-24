@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉcoApp - Actualités Écologiques</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* En-tête */
+    header {
+      background-color: #2E7D32;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border-radius: 20px;
+      border: none;
+    }
+
+    .user-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Section Dernières Actualités */
+    .actualites-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .actualites-title {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .article {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    .article img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .article-content h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #2E7D32;
+    }
+
+    .article-content p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .article-meta {
+      font-size: 12px;
+      color: #999;
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Section Alertes Environnementales */
+    .alertes-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .alerte {
+      background-color: #ffebee;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border-left: 4px solid #d32f2f;
+    }
+
+    .alerte h3 {
+      color: #d32f2f;
+      margin-bottom: 8px;
+    }
+
+    /* Section À la Une */
+    .une-section {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .une-article {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .une-article img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .une-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+      padding: 20px;
+    }
+
+    .une-overlay h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    /* Barre de navigation */
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-align: center;
+      color: #2E7D32;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête -->
+  <header>
+    <div class="logo">ÉcoApp</div>
+    <input type="text" class="search-bar" placeholder="Rechercher une actualité...">
+    <div class="user-icons">
+      <span>🔔</span>
+      <span>👤</span>
+    </div>
+  </header>
+
+  <!-- Section À la Une -->
+  <section class="une-section">
+    <h2 class="actualites-title">🔥 À la Une</h2>
+    <div class="une-article">
+      <img src="Images/Plastique.jpg" alt="Actualité à la une">
+      <div class="une-overlay">
+        <h3>Nouvelle loi contre le plastique à usage unique adoptée</h3>
+        <p>Le gouvernement annonce l'interdiction des emballages plastiques d'ici 2025.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Dernières Actualités -->
+  <section class="actualites-section">
+    <h2 class="actualites-title">📰 Dernières Actualités</h2>
+    <div class="article">
+      <img src="Images/centrerecyclage.webp" alt="Recyclage">
+      <div class="article-content">
+        <h3>Nouveau centre de recyclage ouvert à Paris</h3>
+        <p>Un espace dédié au tri et à la valorisation des déchets vient d'ouvrir ses portes dans le 15ème arrondissement.</p>
+        <div class="article-meta">
+          <span>📅 22 avril 2026</span>
+          <span>📍 Paris</span>
+        </div>
+      </div>
+    </div>
+    <div class="article">
+      <img src="Images/Foret.jfif" alt="Forêt">
+      <div class="article-content">
+        <h3>Record de plantations d'arbres en 2026</h3>
+        <p>Plus de 10 millions d'arbres ont été plantés en France cette année, un record historique.</p>
+        <div class="article-meta">
+          <span>📅 20 avril 2026</span>
+          <span>🌍 France</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Alertes Environnementales -->
+  <section class="alertes-section">
+    <h2 class="actualites-title">⚠️ Alertes Environnementales</h2>
+    <div class="alerte">
+      <h3>Pic de pollution à Lyon</h3>
+      <p>Un épisode de pollution aux particules fines est prévu demain. Limitez vos déplacements en voiture.</p>
+    </div>
+    <div class="alerte">
+      <h3>Sécheresse dans le Sud-Est</h3>
+      <p>Les restrictions d'eau sont renforcées dans 12 départements. Économisez l'eau.</p>
+    </div>
+  </section>
+
+  <!-- Barre de navigation -->
+  <nav>
+    <a href="index.html">📊 Mon Espace</a>
+    <a href="Actualites.html">🌍 Actualités</a>
+    <a href="Communaute.html">👥 Communauté</a>
+    <a href="Communication.html">📢 Activité</a>
+  </nav>
+</body>
+</html>
